@@ -6,7 +6,6 @@
 
   <div class="flex w-full h-full">
     <app-sidebar
-      class="fixed shadow-lg h-screen z-10 transition-[left] ease-in-out duration-300"
       [ngClass]="[sidebarActive ? activeSidebarClass : inactiveSidebarClass]"
       [sidebarActive]="sidebarActive"
       (toggleSidebarEvent)="toggleSidebar($event)"

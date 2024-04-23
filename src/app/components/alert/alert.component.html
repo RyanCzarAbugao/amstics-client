@@ -1,0 +1,8 @@
+<!-- Alert Success  -->
+<div
+  [ngClass]="[hide ? 'hidden' : 'flex']"
+  class="justify-between text-green-800 shadow-inner rounded p-3 bg-green-200 border-green-400 border my-4 mb-5"
+>
+  <p class="self-center">{{ message }}</p>
+  <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+</div>

@@ -13,6 +13,11 @@ import { QrcodesComponent } from './pages/qrcodes/qrcodes.component';
 import { TableComponent } from './components/table/table.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { ScanqrcodeComponent } from './pages/scanqrcode/scanqrcode.component';
+import { StudentsComponent } from './pages/students/students.component';
+
+import { AlertComponent } from './components/alert/alert.component';
+import { ModalComponent } from './components/modal/modal.component';
+
 import { QRCodeModule } from 'angularx-qrcode';
 import { NgxScannerQrcodeModule, LOAD_WASM } from 'ngx-scanner-qrcode';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,7 +37,10 @@ LOAD_WASM().subscribe();
     TableComponent,
     SettingsComponent,
     AttendancesComponent,
-    ScanqrcodeComponent
+    ScanqrcodeComponent,
+    StudentsComponent,
+    AlertComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

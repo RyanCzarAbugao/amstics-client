@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'attendance-monitoring-using-qr-code';
   sidebarActive : boolean = false;
-  activeSidebarClass: string = "left-0";  
-  inactiveSidebarClass: string = "-left-full";  
+  activeSidebarClass: string = "fixed shadow-lg h-screen z-10 transition-[left] ease-in-out duration-300 left-0";  
+  inactiveSidebarClass: string = "fixed shadow-lg h-screen z-10 transition-[left] ease-in-out duration-300 -left-full";  
 
   protected toggleSidebar(value: boolean) {
     this.sidebarActive = !this.sidebarActive;

@@ -1,0 +1,14 @@
+<button
+  class="bg-green-800 px-3 py-1 rounded text-gray-100 mb-4"
+  (click)="addStudent()"
+>
+  Add Student
+</button>
+
+<div>
+  <app-table [headers]="headerData" [rows]="rowData"></app-table>
+</div>
+
+<app-modal [modalTitle]="'Add Student'" [show]="showAddStudentModal" (saveData)="saveStudent()">
+  adsfasdf
+</app-modal>
