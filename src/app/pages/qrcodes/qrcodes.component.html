@@ -1,0 +1,41 @@
+<div class="relative shadow-lg rounded-xl overflow-auto border p-2 w-auto">
+  <div class="overflow-auto my-3">
+    <table class="table-auto w-full">
+      <thead>
+        <tr>
+          <th
+            class="border-b dark:border-slate-300 font-normal p-4 pl-8 pt-0 pb-3 text-left text-nowrap"
+          >
+            Name
+          </th>
+          <th
+            class="border-b dark:border-slate-300 font-normal p-4 pl-8 pt-0 pb-3 text-left text-nowrap"
+          >
+            QR Code
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td
+            class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-slate-600 dark:text-slate-500 text-nowrap"
+          >
+            Zhane Faye Baynosa
+          </td>
+          <td
+            class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-slate-600 dark:text-slate-500 text-nowrap"
+          >
+            <div class="qrcodeImage">
+              <qrcode
+                [qrdata]="'201210239'"
+                [width]="256"
+                [errorCorrectionLevel]="'M'"
+              ></qrcode>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<button
+  class="bg-green-800 px-3 py-1 rounded text-gray-100 mb-4"
+  (click)="action.isStart ? action.stop() : action.start()"
+>
+  {{ action.isStart ? "Stop Scanning" : "Start Scanning" }}
+</button>
+
+<div class="w-full flex justify-center">
+  <div class="rounded bg-green-800 p-1">
+    <ngx-scanner-qrcode #action="scanner"></ngx-scanner-qrcode>
+  </div>
+</div>
+
+<!-- data  -->
+<span>data: {{ action.data.value | json }} </span
+><!-- value --><br />
+<span>value: {{ action.data | async | json }}</span
+><!-- async -->
