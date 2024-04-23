@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ScheduleApiService {
 
-  apiUrl = 'http://localhost:5000/api/schedules';
+  host = 'https://amstics-server.onrender.com';
+  apiUrl = `${this.host}/api/schedules`;
 
   constructor(private http: HttpClient) { }
 

@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class UserApiService {
 
-  apiUrl = 'http://localhost:5000/api/users';
+  host = 'https://amstics-server.onrender.com';
+  apiUrl = `${this.host}/api/users`;
 
   constructor(private http: HttpClient) { }
 
