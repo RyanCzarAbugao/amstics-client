@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserApiService {
 
-  host = 'https://amstics-server.onrender.com';
+  host = 'https://amstics-server-production.up.railway.app';
   apiUrl = `${this.host}/api/users`;
 
   constructor(private http: HttpClient) { }
