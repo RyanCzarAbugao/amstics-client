@@ -1,0 +1,217 @@
+<div class="relative top-0 left-0 w-screen px-5">
+  <app-table [headers]="studentTableHeaderData" tableClass="border">
+    <tr *ngFor="let row of students">
+      <td
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap flex gap-2"
+      >
+        <button
+          class="bg-green-800 hover:bg-green-700 p-2 rounded text-gray-100"
+          (click)="addRoutine(row.enroll_no)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-plus-square"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
+            />
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+            />
+          </svg>
+        </button>
+        <button
+          class="bg-blue-700 hover:bg-blue-600 p-2 rounded text-gray-100"
+          (click)="showRoutine(row.enroll_no)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-eye"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"
+            />
+            <path
+              d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"
+            />
+          </svg>
+        </button>
+      </td>
+      <td
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.enroll_no }}
+      </td>
+      <td
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.name }}
+      </td>
+      <td
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.grade_level }}
+      </td>
+      <td
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.section_name }}
+      </td>
+    </tr>
+  </app-table>
+</div>
+
+<!-- ADD ROUTINE MODAL -->
+<app-modal
+  [modalTitle]="'Add Routine'"
+  [show]="showAddRoutineModal"
+>
+  <div class="mb-4">
+    <form [formGroup]="routineAddForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3 hidden">
+        <label
+          class="block text-gray-100 text-sm font-medium mb-2"
+          for="Enroll No"
+        >
+          Enroll No
+        </label>
+
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="Enroll No"
+          type="hidden"
+          placeholder="Enter your Enroll No"
+          formControlName="enroll_no"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="block text-gray-100 text-sm font-medium mb-2" for="Day">
+          Date
+        </label>
+
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="Day"
+          type="date"
+          placeholder="Enter your Day"
+          formControlName="day"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="block text-gray-100 text-sm font-medium mb-2" for="Start Time">
+          Start Time
+        </label>
+
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="Start Time"
+          type="time"
+          placeholder="Enter your Start Time"
+          formControlName="start_time"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="block text-gray-100 text-sm font-medium mb-2" for="End Time">
+          End Time
+        </label>
+
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="End Time"
+          type="time"
+          placeholder="Enter your End Time"
+          formControlName="end_time"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="block text-gray-100 text-sm font-medium mb-2" for="Subject">
+          Subject
+        </label>
+
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="Subject"
+          type="text"
+          placeholder="Enter your Subject"
+          formControlName="subject"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="block text-gray-100 text-sm font-medium mb-2" for="Location">
+          Location
+        </label>
+
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="Location"
+          type="text"
+          placeholder="Enter your Location"
+          formControlName="location"
+        />
+      </div>
+
+      <div class="flex items-center rounded-b">
+        <button
+          data-modal-hide="default-modal"
+          type="submit"
+          class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-blue-800"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</app-modal>
+
+<!-- VIEW ROUTINE LIST MODAL -->
+<app-modal
+  [modalTitle]="'Routines'"
+  [show]="showRoutineListModal"
+  [noButtons]="true"
+>
+  <app-table
+    [headers]="routineTableHeaderData"
+    tableClass="bg-green-600 text-gray-100"
+  >
+    <tr *ngFor="let row of routines">
+      <td
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.day }}
+      </td>
+      <td
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.start_time }}
+      </td>
+      <td
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.end_time }}
+      </td>
+      <td
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.subject }}
+      </td>
+      <td
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.location }}
+      </td>
+    </tr>
+  </app-table>
+</app-modal>

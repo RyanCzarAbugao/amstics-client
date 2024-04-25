@@ -1,3 +1,40 @@
-<div>
-  <app-table [headers]="headerData" [rows]="rowData"></app-table>
+<div class="relative top-0 left-0 w-screen px-5">
+  <app-table [headers]="headerData" tableClass="border">
+    <tr
+      *ngFor="let row of attendances"
+    >
+      <td
+        [ngClass]="[
+          row.status === 'Present' ? presentStatusClass : lateStatusClass
+        ]"
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.time_in_date }}
+      </td>
+      <td
+        [ngClass]="[
+          row.status === 'Present' ? presentStatusClass : lateStatusClass
+        ]"
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.time_in_time }}
+      </td>
+      <td
+        [ngClass]="[
+          row.status === 'Present' ? presentStatusClass : lateStatusClass
+        ]"
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.status }}
+      </td>
+      <td
+        [ngClass]="[
+          row.status === 'Present' ? presentStatusClass : lateStatusClass
+        ]"
+        class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+      >
+        {{ row.enroll_no }}
+      </td>
+    </tr>
+  </app-table>
 </div>

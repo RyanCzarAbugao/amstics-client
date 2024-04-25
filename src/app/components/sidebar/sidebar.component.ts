@@ -18,13 +18,9 @@ export class SidebarComponent {
   modules : Module[] = [
     {name: "Home", active: true},
     {name: "Attendances", active: false},
-    {name: "Schedules", active: false},
-    {name: "Users", active: false},
-    {name: "QrCodeSetup", active: false},
-    {name: "ScanQrCode", active: false},
-    {name: "Profile", active: false},
-    {name: "Notifications", active: false},
-    {name: "Settings", active: false}
+    {name: "Routines", active: false},
+    {name: "Students", active: false},
+    {name: "ScanQrCode", active: false}
   ];
   
   toggleSidebarNavLink(moduleName: string) {

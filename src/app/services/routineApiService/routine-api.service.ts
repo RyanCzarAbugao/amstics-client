@@ -1,34 +1,33 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class StudentApiService {
-
-  apiUrl = `${environment.host}/api/students`;
+export class RoutineApiService {
+  apiUrl = `${environment.host}/api/routines`;
 
   constructor(private http: HttpClient) { }
 
-  getStudents(): Observable<any[]> {
+  getRoutines(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}`);
   }
 
-  getStudentById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  getRoutineByEnrollNo(id: number): Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}/${id}`);
   }
 
-  addStudent(post: any): Observable<any> {
+  addRoutine(post: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}`, post);
   }
 
-  updateStudent(id: number, post: any): Observable<any> {
+  updateRoutine(id: number, post: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/${id}`, post);
   }
 
-  deleteStudent(id: number): Observable<any> {
+  deleteRoutine(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 }

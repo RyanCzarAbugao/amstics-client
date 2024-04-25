@@ -1,14 +1,129 @@
-<button
-  class="bg-green-800 px-3 py-1 rounded text-gray-100 mb-4"
-  (click)="addStudent()"
->
-  Add Student
-</button>
+<div class="relative top-0 left-0 w-screen px-5">
+  <button
+    class="bg-green-800 px-3 py-1 rounded text-gray-100 mb-4"
+    (click)="addStudent()"
+  >
+    Add Student
+  </button>
 
-<div>
-  <app-table [headers]="headerData" [rows]="rowData"></app-table>
+  <div>
+    <app-table [headers]="headerData" tableClass="border">
+      <tr *ngFor="let row of students">
+        <td
+          class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+        >
+          {{ row.enroll_no }}
+        </td>
+        <td
+          class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+        >
+          {{ row.name }}
+        </td>
+        <td
+          class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+        >
+          {{ row.grade_level }}
+        </td>
+        <td
+          class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+        >
+          {{ row.section_name }}
+        </td>
+        <td
+          class="border-b border-slate-100 dark:border-slate-200 p-4 pl-8 text-nowrap"
+        >
+          <div class="qrcodeImage">
+            <qrcode
+              [qrdata]="row.qr_code"
+              [width]="100"
+              [errorCorrectionLevel]="'M'"
+            ></qrcode>
+          </div>
+        </td>
+      </tr>
+    </app-table>
+  </div>
 </div>
 
-<app-modal [modalTitle]="'Add Student'" [show]="showAddStudentModal" (saveData)="saveStudent()">
-  adsfasdf
+<app-modal [modalTitle]="'Add Student'" [show]="showAddStudentModal">
+  <form [formGroup]="studentAddForm" (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+      <label
+        class="block text-gray-100 text-sm font-medium mb-2"
+        for="Enroll No"
+      >
+        Enroll No
+      </label>
+
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="Enroll No"
+        type="number"
+        placeholder="Enter your Enroll No"
+        formControlName="enroll_no"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label
+        class="block text-gray-100 text-sm font-medium mb-2"
+        for="Name"
+      >
+        Name
+      </label>
+
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="Name"
+        type="text"
+        placeholder="Enter your Name"
+        formControlName="name"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label
+        class="block text-gray-100 text-sm font-medium mb-2"
+        for="Grade Level"
+      >
+        Grade Level
+      </label>
+
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="Grade Level"
+        type="number"
+        placeholder="Enter your Grade Level"
+        formControlName="grade_level"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label
+        class="block text-gray-100 text-sm font-medium mb-2"
+        for="Section Name"
+      >
+        Section Name
+      </label>
+
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="Section Name"
+        type="text"
+        placeholder="Enter your Section Name"
+        formControlName="section_name"
+      />
+    </div>
+
+    <div class="flex items-center rounded-b">
+      <button
+        data-modal-hide="default-modal"
+        type="submit"
+        class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-blue-800"
+      >
+        Save
+      </button>
+    </div>
+  </form>
 </app-modal>

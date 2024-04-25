@@ -7,14 +7,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ModalComponent {
   @Input() show : boolean = false;
+  @Input() noButtons !: boolean;
   @Input() modalTitle : string = "";
-  @Output() saveData = new EventEmitter<any>();
   
   closeModal(){
     this.show = false;
-  }
-
-  save() {
-    this.saveData.emit();
   }
 }

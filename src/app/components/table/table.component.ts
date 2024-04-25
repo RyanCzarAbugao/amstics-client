@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { TableHeader } from '../../../interfaces/tableheader';
-import { TableRow } from 'src/interfaces/tablerow';
 
 @Component({
   selector: 'app-table',
@@ -10,5 +9,5 @@ import { TableRow } from 'src/interfaces/tablerow';
 
 export class TableComponent {
   @Input() headers : TableHeader[] = [];
-  @Input() rows : TableRow[] = [];
+  @Input() tableClass !: string;
 }

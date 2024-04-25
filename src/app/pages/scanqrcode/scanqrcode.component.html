@@ -1,14 +1,19 @@
-<app-alert [hide]="alert" [message]="alertMessage"></app-alert>
+<div class="relative top-0 left-0 w-screen px-5">
+  <app-alert [hide]="alert" [message]="alertMessage"></app-alert>
 
-<button
-  class="bg-green-800 px-3 py-1 rounded text-gray-100 mb-4"
-  (click)="action.isStart ? action.stop() : action.start()"
->
-  {{ action.isStart ? "Stop Scanning" : "Start Scanning" }}
-</button>
+  <button
+    class="bg-green-800 px-3 py-1 rounded text-gray-100 mb-4"
+    (click)="action.isStart ? action.stop() : action.start()"
+  >
+    {{ action.isStart ? "Stop Scanning" : "Start Scanning" }}
+  </button>
 
-<div class="w-full flex justify-center">
-  <div class="rounded bg-green-800 p-1">
-    <ngx-scanner-qrcode #action='scanner' (event)="onEvent($event, action)"></ngx-scanner-qrcode>
+  <div class="w-full flex justify-center">
+    <div class="rounded bg-green-800 p-1 w-full">
+      <ngx-scanner-qrcode
+        #action="scanner"
+        (event)="onEvent($event, action)"
+      ></ngx-scanner-qrcode>
+    </div>
   </div>
 </div>
